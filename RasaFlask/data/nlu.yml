@@ -1,0 +1,161 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - good morning
+    - good evening
+    - let's go
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - thanks
+    - bye
+    - goodbye
+    - have a nice day
+    - bye bye
+    - see you later
+    - tạm biệt
+    - không
+    - no
+
+- intent: noi_quy
+  examples: |
+    - nội quy 
+    - nguyên tắc
+    - quy chế
+    - quy tắc
+    - luật lệ
+    - quy định
+
+- intent: tu_van
+  examples: |
+    - tư vấn
+    - hỗ trợ
+    - trợ giúp
+    - có vấn đề cần hỏi
+    - muốn được tư vấn
+
+- intent: vi_tri
+  examples: |
+    - vị trí
+    - chi nhánh
+    - khách sạn ở đâu
+    - ở đâu
+    - chi nhánh ở đâu
+
+- intent: tien_ich
+  examples: |
+    - tiện ích
+    - khách sạn có tiện ích gì
+    - tiện nghi
+    - phòng có tiện nghi gì
+
+- intent: gia_phong
+  examples: |
+    - giá phòng
+    - phòng bao nhiêu
+    - tính giá như nào
+    - bao nhiêu đêm
+    - giá
+
+- intent: cs_huy
+  examples: |
+    - nếu hủy phòng sẽ như nào
+    - chính sách hủy phòng
+    - cho coi chính sách hủy phòng
+    - cs hủy phòng
+    - hủy trước 24h có miễn phí không
+    - hủy phòng có mất cọc không
+
+- intent: dich_vu
+  examples: |
+    - dịch vụ
+    - phục vụ
+    - ks có spa không
+    - bể bơi
+    - nhà hàng
+
+- intent: tp_hn
+  examples: |
+    - thủ đô Hà Nội
+    - Hà Nội
+    - thành phố Hà Nội
+    - hn
+    - tdhn
+
+- intent: tp_dn
+  examples: |
+    - Đà Nẵng
+    - thành phố Đà Nẵng
+    - dn
+    - tpdn
+
+- intent: tp_dl
+  examples: |
+    - Đà Lạt
+    - thành phố Đà Lạt
+    - dl
+    - tpdl
+
+- intent: tp_pt
+  examples: |
+    - Phan Thiết
+    - thành phố Phan Thiết
+    - pt
+    - tppt
+
+- intent: tp_hcm
+  examples: |
+    - HCM
+    - TPHCM
+    - Hồ Chí Minh
+    - thành phố Hồ Chí Minh
+    - tp hồ chí minh
+    - Sài Gòn
+
+- intent: dat_phong
+  examples: |
+    - Tôi muốn đặt phòng
+    - đặt phòng
+    - đặt phòng cho tôi
+    - booking
+    - đặt
+
+- intent: provide
+  examples: |
+    - [Nguyễn Văn A](name), [0987654321](phone_number), [CN1](chi_nhanh), [vip](loai_phong), [một](so_luong), [30-6-2024](thoi_gian)
+
+- intent: thay_doi
+  examples: |
+    - thay đổi
+    - thay đổi phòng
+    - tôi muốn đổi thông tin
+    - dời phòng
+
+- intent: provide_thay_doi
+  examples: |
+    - [Nguyễn Văn A](name), [031442425](phone_number)
+
+- intent: huy_phong
+  examples: |
+    - Hủy đặt phòng
+    - Hủy phòng
+    - tôi muốn hủy phòng
+
+- intent: provide_huy_phong
+  examples: |
+    - [Nguyễn Văn A](name), [031442425](phone_number)
+
+- intent: danh_gia
+  examples: |
+    - đánh giá
+    - đg
+    - review
+    - sao

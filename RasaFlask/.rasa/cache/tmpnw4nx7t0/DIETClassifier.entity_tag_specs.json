@@ -1,0 +1,20 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-chi_nhanh",
+      "2": "I-chi_nhanh",
+      "3": "L-chi_nhanh",
+      "4": "U-chi_nhanh",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-chi_nhanh": 1,
+      "I-chi_nhanh": 2,
+      "L-chi_nhanh": 3,
+      "U-chi_nhanh": 4,
+      "O": 0
+    },
+    "num_tags": 5
+  }
+]

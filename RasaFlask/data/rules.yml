@@ -1,0 +1,78 @@
+version: "3.1"
+
+rules:
+
+- rule: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: Bai
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: noi quy
+  steps:
+  - intent: noi_quy
+  - action: utter_noi_quy
+
+- rule: tu van
+  steps:
+  - intent: tu_van
+  - action: utter_tu_van
+
+- rule: vi tri
+  steps:
+  - intent: vi_tri
+  - action: utter_vi_tri
+
+- rule: tien ich
+  steps:
+  - intent: tien_ich
+  - action: utter_tien_ich
+
+- rule: gia phong
+  steps:
+  - intent: gia_phong
+  - action: utter_gia_phong
+
+- rule: chinh sach huy
+  steps:
+  - intent: cs_huy
+  - action: utter_cs_huy
+
+- rule: dich vu
+  steps:
+  - intent: dich_vu
+  - action: utter_dich_vu
+
+- rule: tp_hn
+  steps:
+  - intent: tp_hn
+  - action: utter_tp_hn
+
+- rule: tp_dn
+  steps:
+  - intent: tp_dn
+  - action: utter_tp_dn
+
+- rule: tp_dl
+  steps:
+  - intent: tp_dl
+  - action: utter_tp_dl
+
+- rule: tp_pt
+  steps:
+  - intent: tp_pt
+  - action: utter_tp_pt
+
+- rule: tp_hcm
+  steps: 
+  - intent: tp_hcm
+  - action: utter_tp_hcm
+
+- rule: danh_gia
+  steps:
+  - intent: danh_gia
+  - action: utter_danh_gia

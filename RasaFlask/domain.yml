@@ -1,0 +1,138 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - noi_quy
+  - tu_van
+  - vi_tri
+  - tien_ich
+  - gia_phong
+  - cs_huy
+  - dich_vu
+  - tp_hn
+  - tp_dn
+  - tp_dl
+  - tp_pt
+  - tp_hcm
+  - dat_phong
+  - provide
+  - thay_doi
+  - provide_thay_doi
+  - huy_phong
+  - provide_huy_phong
+  - danh_gia
+
+entities:
+  - name
+  - phone_number
+  - chi_nhanh
+  - loai_phong
+  - so_luong
+  - thoi_gian
+
+slots:
+  name:
+    type: text
+    mappings:
+      - type: from_text
+  phone_number:
+    type: text
+    mappings:
+      - type: from_text
+  chi_nhanh:
+    type: text
+    mappings:
+      - type: from_text
+  loai_phong:
+    type: text
+    mappings:
+      - type: from_text
+  so_luong:
+    type: text
+    mappings:
+      - type: from_text
+  thoi_gian:
+    type: text
+    mappings:
+      - type: from_text 
+
+
+responses:
+  utter_greet:
+  - text: "Chào mừng bạn đến với Khách sạn Ánh Sao. Tôi có thể giúp gì cho bạn?"
+
+  utter_goodbye:
+  - text: "Cảm ơn bạn đã dành thời gian, hẹn gặp lại."
+
+  utter_noi_quy:
+  - text: "Đây là nội quy của khách sạn: \n<br>- Giữ gìn vệ sinh chung khu vực quanh khách sạn. \n<br>- Xuất trình giấy tờ khi nhận phòng. \n<br>- Không mang vũ khí và chất cấm vào khách sạn. \n<br>- Không hút thuốc trong phòng, chỉ hút thuốc ở khu vực được cho phép. \n<br>- Bảo quản và sử dụng thiết bị trong phòng một cách hợp lý và báo ngay cho lễ tân nếu thiết bị hư hỏng, gặp sự cố. \n<br>- Thanh toán các chi phí phát sinh (nếu có) trước khi trả phòng."
+
+  utter_tu_van:
+  - text: "Tôi có thể giúp gì cho bạn? \n<br>- Biết vị trí các chi nhánh khách sạn. \n<br>- Biết tiện ích của khách sạn. \n<br>- Biết giá phòng. \n<br>- Biết chính sách hủy đặt phòng. \n<br>- Biết dịch vụ khách sạn."
+
+  utter_vi_tri:
+  - text: "Chúng tôi có các chi nhánh tại các khu vực sau: \n<br>- Thành Phố Hà Nội. \n<br>- Thành Phố Đà Nẵng. \n<br>- Thành Phố Đà Lạt. \n<br>- Thành Phố Phan Thiết. \n<br>- Thành Phố Hồ Chí Minh."
+
+  utter_tien_ich:
+  - text: "Khách sạn chúng tôi có đầy đủ tiện ích phục vụ cho nhu cầu sinh hoạt cá nhân và gia đình. Bao gồm máy sấy tóc, tủ lạnh, điều hòa, máy nóng lạnh... Ngoài ra khi quý khách gặp sự cố với các vật phẩm trong phòng xin hãy gọi hotline sau Số đường dây nóng: 111 222 333"
+
+  utter_gia_phong:
+  - text: "Hiện tại giá phòng của chúng tôi được chia làm 2 loại: \n<br>- Với phòng thường: 1240k/1 đêm. \n<br>- Với phòng vip: 2150k/1 đêm."
+
+  utter_cs_huy:
+  - text: "Chính sách hủy đặt phòng của chúng tôi như sau: \n<br>- Hủy phòng trước 24 giờ miễn phí. \n<br>- Hủy phòng sau 24 giờ mất 50% tiền phòng. \n<br>- Hủy phòng trong ngày mất 100% tiền phòng."
+
+  utter_dich_vu:
+  - text: "Khách sạn của chúng tôi cung cấp các dịch vụ sau: \n<br>- Dịch vụ spa. \n<br>- Dịch vụ bể bơi. \n<br>- Dịch vụ phòng. \n<br>- Dịch vụ nhà hàng."
+
+  utter_tp_hn:
+  - text: "Danh sách các chi nhánh ở Thành Phố Hà Nội: \n<br>- CN1: 106 Đường Nguyễn Chí Thanh, Quận Ba Đình, Thành phố Hà Nội. \n<br>- CN2: 79 Phố Phan Đình Phùng, Quận Ba Đình, Thành phố Hà Nội. \n<br>- CN3: 14 Phố Hoàng Cầu, Quận Đống Đa, Thành phố Hà Nội. \n<br>- CN4: 456 Đường Láng, Quận Đống Đa, Thành phố Hà Nội."
+
+  utter_tp_dn:
+  - text: "Danh sách các chi nhánh ở Thành Phố Đà Nẵng: \n<br>- CN5: 4 Đường Hải Phòng, Phường Phước Mỹ, Quận Sơn Trà, Thành phố Đà Nẵng.\n<br>- CN6: 23 Đường Hải Phòng, Phường Mân Thái, Quận Sơn Trà, Thành phố Đà Nẵng.\n<br>- CN7: 1 Đường Nguyễn Văn Linh, Phường Hải Châu, Quận Hải Châu, Thành phố Đà Nẵng.\n<br>- CN8: Đường Nguyễn Văn Linh, Phường Bình Thuận, Quận Hải Châu, Thành phố Đà Nẵng."
+
+  utter_tp_dl:
+  - text: "Danh sách các chi nhánh ở Thành Phố Đà Lạt: \n<br>- CN9: 4 Đường Nguyễn Thị Minh Khai, Phường 10, Thành phố Đà Lạt, Tỉnh Lâm Đồng.\n<br>- CN10: 63 Đường Nguyễn Thị Minh Khai, Phường 6, Thành phố Đà Lạt, Tỉnh Lâm Đồng.\n<br>- CN11: 89 Đường Trần Phú, Phường 3, Thành phố Đà Lạt, Tỉnh Lâm Đồng.\n<br>- CN12: 23 Đường Nguyễn Thị Minh Khai, Phường 6, Thành phố Đà Lạt, Tỉnh Lâm Đồng.\n<br>- CN13: 6 Đường Trần Phú, Phường 2, Thành phố Đà Lạt, Tỉnh Lâm Đồng."
+
+  utter_tp_pt:
+  - text: "Danh sách các chi nhánh ở Thành Phố Phan Thiết: \n<br>- CN14: 9 Đường Nguyễn Đình Chiểu, Phường Phú Hài, Thành phố Phan Thiết, Tỉnh Bình Thuận.\n<br>- CN15: 56 Đường Nguyễn Tất Thành, Phường Tân Tài, Thành phố Phan Thiết, Tỉnh Bình Thuận.\n<br>- CN16: 102 Đường Trần Hưng Đạo, Phường Mũi Né, Thành phố Phan Thiết, Tỉnh Bình Thuận."
+
+  utter_tp_hcm:
+  - text: "Danh sách các chi nhánh ở Thành Phố Hồ Chí Minh: \n<br>- CN17: 9 Đường Nguyễn Huệ, Phường Nguyễn Thái Bình, Quận 1, Thành phố Hồ Chí Minh.\n<br>- CN18: 01 Đường Nguyễn Huệ, Phường Cầu Ông Lãnh, Quận 1, Thành phố Hồ Chí Minh."
+  
+  utter_danh_gia:
+  - text: "1. Vị trí: 5/5⭐\n<br>Hầu hết khách sạn của chúng tôi nằm ngay trung tâm thành phố, rất thuận tiện cho việc di chuyển và tham quan. Từ khách sạn, bạn chỉ mất vài phút đi bộ để đến các điểm tham quan nổi tiếng. Ngoài ra, xung quanh khách sạn còn có nhiều nhà hàng, quán cà phê và cửa hàng mua sắm. \n<br>2. Cơ sở vật chất: 4/5⭐\n<br>Khách sạn được thiết kế sang trọng với nhiều tiện nghi hiện đại. Phòng nghỉ rộng rãi, sạch sẽ và được trang trí đẹp mắt. Hồ bơi ngoài trời rất tuyệt vời với khu vườn nhiệt đới xung quanh, tạo cảm giác thư giãn và thoải mái. Phòng tập gym và spa cũng được trang bị đầy đủ. \n<br>3. Dịch vụ: 5/5⭐\n<br>Dịch vụ tại tất cả khách sạn thật sự nổi bật. Từ lúc nhận phòng đến khi trả phòng, khách hàng luôn cảm nhận được sự chuyên nghiệp và thân thiện của nhân viên. Mọi yêu cầu của bạn đều được xử lý nhanh chóng và chu đáo. Đặc biệt, nhân viên lễ tân và quản lý luôn sẵn lòng hỗ trợ mọi thông tin cần thiết về du lịch và ăn uống trong khu vực.\n<br>4. Ẩm thực: 4.8/5⭐\n<br>Nhà hàng trong khách sạn phục vụ các món ăn đa dạng và chất lượng. Bữa sáng buffet rất phong phú với nhiều lựa chọn từ món Á đến món  u. Bạn sẽ thấy đặc biệt ấn tượng với các món hải sản tươi sống và món tráng miệng ngon miệng. Giá cả ở mức hợp lý so với chất lượng món ăn và dịch vụ.\n<br>5. Giá cả: 4.5/5⭐\n<br>Giá phòng tại tất cả địa điểm đều ở mức hợp lý, phản ánh đúng chất lượng dịch vụ và tiện nghi mà khách sạn mang lại. So với các khách sạn cùng phân khúc trong khu vực, bạn sẽ cảm thấy đây là một lựa chọn có giá trị tốt."
+
+  utter_dat_phong:
+  - text: "Quý khách vui lòng đặt phòng theo cú pháp sau: 
+    Tên, Số điện thoại, Mã chi nhánh(CN1,CN2,...), Loại phòng(thường/vip), Số lượng(một,hai,...), Thời gian(dd-mm-yy)"
+
+  utter_thank_you:
+  - text: "Quý khách đã đặt phòng thành công, Thông tin: {name}, khách sạn sẽ liên hệ và xác nhận đặt phòng. Cảm ơn quý khách."
+
+  utter_thay_doi:
+  - text: "Quý khách vui lòng cung cấp tên và số điện thoại để chúng tôi trực trao đổi với quý khách:"
+
+  utter_thong_bao_thay_doi:
+  - text: "Chúng tôi sẽ liên lạc trực tiếp với anh/chi: {name} để trao đổi thêm thông tin về thay đổi. Cảm ơn quý khách."
+
+  utter_thong_bao_huy_phong:
+  - text: "Chúng tôi sẽ liên lạc trực tiếp với anh/chi: {name} để trao đổi thêm thông tin về hủy phòng. Cảm ơn quý khách."
+
+  utter_default:
+  - text: "Xin lỗi, tôi không hiểu yêu cầu của bạn, vui lòng nhập lại!"
+
+  utter_hoi_them:
+  - text: "Bạn còn yêu cầu nào khác không?"
+
+
+actions:
+  - action_save_details
+  - action_save_details_thay_doi
+  - action_save_details_huy_phong
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

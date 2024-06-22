@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="">
+    <title>Khách sạn Ánh Sao</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <style>
+
+            .btn{
+                padding: 0px;
+            }
+            .btn-primary{
+                bs-btn-bg: white;
+                border-color:white;
+            }
+            #chat-widget{
+                max-height:400px;
+                overflow-y:auto;
+            }
+
+            #chat-widget-messages{
+                margin-right:8px;
+            }
+            .chat-sign-button{
+                width: 50px;
+                height: 50px;
+                font-size: 18px;
+            }
+            .user{
+                text-align: right;
+            }
+            .bot{
+                color: gray;
+            }
+            .index{
+                background-color: black; 
+                color: white; 
+                height: 80px; 
+                padding-left: 20px;
+            }
+            header.index {
+                background-color: black;
+                color: white; 
+                padding: px; 
+                display: flex;
+                justify-content: space-between; 
+                align-items: center; 
+            }
+            
+            header.index nav ul {
+                list-style: none;
+                padding: 100px;
+                display: flex;
+                
+            }
+            
+            header.index nav ul li {
+                margin-left: 15px;
+                padding: 10px;
+            }
+            
+            header.index nav ul li a {
+                color: white;
+                text-decoration: none;
+                font-size: 15px;
+            }
+            .intro {
+                max-width: 100%; 
+                height: 600px; 
+                overflow: hidden; 
+                position: relative; 
+            }
+            
+            .intro img {
+                width: 100%; 
+                height: 100%; 
+                object-fit: cover;
+                top: 0; 
+                left: 0; 
+            }
+            .footer{
+                width: 100%;
+                min-height: 50px;
+                background-color: black;
+                text-align: center;
+            }
+            .slider{
+                width: 100%;
+                height:640px;
+                position:relative;
+                overflow:hidden;
+            }
+            .items{
+                width:100%;
+            }
+            .list{
+                position:absolute;
+                top:0;
+                left:0;
+                height:100%;
+                display: flex;
+                width:max-content;
+                transition: 1s;
+            }
+            .list img{
+                width: 1520px;
+                height:100%;
+                object-fit: cover;
+            }
+            .buttons{
+                position:absolute;
+                top:45%;
+                left:5%;
+                width: 90%;
+                display: flex;
+                justify-content: space-between;
+            }
+            .buttons button{
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background-color:rgb(63, 61, 61);
+                color: white;
+                border: none;
+                font-family: monospace;
+                font-weight: bold;
+            }
+            .dots{
+                position: absolute;
+                bottom: 10px;
+                left: 0;
+                width: 100%;
+                color:#fff;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+            }
+            .dots li{
+                list-style: none;
+                width: 10px;
+                height: 5px;
+                margin: 10px;
+                background-color:#fff5;
+                border-radius: 20px;
+                transition:0,5s;
+            }
+            .dots li.active{
+                width: 30px;
+            }
+            .title{
+                padding-left: 40px;
+                padding-top: 60px;
+                color: black;
+                font-size: 2rem;
+                font-family: sans-serif;
+                height: 25px;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            
+            .locations {
+                margin-top: 70px; 
+                display: flex;
+                flex-wrap: wrap; 
+                justify-content: center;
+                
+            }
+            
+            .locations .roww {
+                display: flex;
+                justify-content: center; 
+                margin-bottom: 20px;
+            }
+            
+            .location {
+                position: relative;
+                margin: 0 10px;
+            }
+            
+            .location img {
+                width: 380px; 
+                height: 280px; 
+                object-fit: cover; 
+                border-radius: 10px; 
+            }
+            .room {
+                position: relative;
+                margin: 0 10px;
+            }
+            
+            
+            .overlay {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: rgba(0, 0, 0, 0.5);
+                color: white;
+                padding: 5px;
+                border-radius: 5px;
+                opacity: 0;
+                transition: opacity 0.3s;
+            }
+            
+            .location:hover .overlay {
+                opacity: 1;
+            }
+            .room:hover .overlay {
+                opacity: 1;
+            }
+            .lct{
+                height: 680px; 
+                padding-left: 10px;
+            }
+            
+            html {
+                scroll-behavior: smooth;
+            }
+            @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+            :root{
+                --main-color: #6DBFE2;
+            }
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Open Sans', sans-serif;
+            }
+            ul{
+                list-style: none;
+            }
+            a {
+                text-decoration: none;
+            }
+            
+            @keyframes fade {
+                0% {
+                    transform: translateY(30px);
+                    opacity:0;
+                }
+            }
+            .header-top ul li a{
+                display: block;
+                background-color: var(--main-color);
+                padding: 12px;
+                transition: all 0.3s ease;
+                border-bottom-left-radius: 5px;
+                border-top-left-radius: 5px;
+                color: black;
+            }
+            .header-top ul li a:hover{
+                color: tomato;
+            }
+            .header-content{
+                position: absolute;
+                top: 0;
+                left: 0;
+                min-height: 100vh;
+                background-color: rgba(255, 255, 255, 0.1);
+                padding: 150px 50px 0 50px;
+                text-align: center;
+                width: 400px;
+            }
+            .header-content> h1{
+                color: var(--main-color);
+            }
+            .header-content> p{
+                color: var(--main-color);
+            }
+            form {
+                padding: 30px 12px;
+                background-color: #cecece;
+                margin-top: 30px;
+            }
+            form h1{
+                color: #333;
+                font-size: 27px;
+            }
+            form select,input{
+                width: 100%;
+                height: 35px;
+                padding-left: 12px;
+                outline: none;
+                background-color: #ddd;
+                border: none;
+            }
+            form p{
+                text-align: left;
+                color: var(--main-color);
+                margin: 8px 0 3px;
+            }
+            form button{
+                height: 35px;
+                width: 150px;
+                background-color: var(--main-color);
+                color: #fff;
+                margin-top: 20px;
+                border: none;
+                cursor: pointer;
+                border-radius: 5px;
+                transition: all .3s ease;
+            }
+            form button:hover{
+                background-color: transparent;
+                border: 1px solid var(--main-color);
+                color: var(--main-color);
+            }
+            /*-------------------------NICE PLACE------------------------*/
+            .nice-place{
+                padding: 10px ;
+            }
+            .container{
+                height: 600px;
+            }
+            .roww{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+            .nice-place-item {
+                width: 350px; 
+                height: 250px; 
+                margin-top: 50px;
+                position: relative;
+                overflow: hidden;
+            }
+            .nice-place-item:hover .nice-place-text{
+                transform: translateX(0%);
+            }
+            
+            .nice-place-item img{
+                object-fit: cover;
+                position: absolute;
+                width: 400px; 
+                height: 300px; 
+                object-fit: cover; 
+                border-radius: 10px; 
+            }
+            .nice-place-text{
+                position: absolute;
+                width: 350px; 
+                height: 250px; 
+                bottom: 0;
+                padding: 12px;
+                background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(255,255,255,0));
+                transform: translateX(-100%);
+                transition: all 0.5s ease;
+            }
+            .nice-place-text h2{
+                color: var(--main-color);
+            }
+            .nice-place-text i{
+                color: yellow;
+            }
+            .nice-place-text p{
+                color: #fff;
+                margin: 12px 0;
+            }
+            .nice-place-text button{
+                height: 30px;
+                width: 100px;
+                background-color: var(--main-color);
+                border: none;
+                color: #fff;
+                cursor: pointer;
+                border-radius: 5px;
+                transition: all 0.5s ease;
+            }
+            .nice-place-text button:hover{
+                background-color: tomato;
+            }
+            
+            .nice-place h1{
+                text-align: center;
+                margin-bottom: 50px;
+                color: var(--main-color);
+                position: relative;
+            }
+            .nice-place h1::before {
+                position: absolute;
+                content:  "";
+                height: 5px;
+                width: 150px;
+                background-color: var(--main-color);
+                border-radius: 5px;
+                bottom: -10px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .nice-place h1::after{
+                position: absolute;
+                content: "\2665";
+                width: 40px;
+                height: 20px;
+                color: red;
+                background-color: #fff;
+                bottom: -18px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .gt{
+                height: 350px; 
+                padding-left: 20px;
+            }
+            .dv{
+                height: 500px; 
+            
+            }
+            .dvu{
+                margin: 30px;
+            }
+            /* CSS cho phần banner */
+            .banner {
+                position: relative;
+                text-align: center;
+                color: white;
+            }
+            
+            .banner img {
+                width: auto;
+                height:600px;
+            }
+            
+            .text-banner {
+                position: absolute;
+                top: 100px;
+                left: 50%;
+                color: black;
+                transform: translate(-50%, -50%);
+            }
+            
+            .text-banner h1 {
+                font-size: 1.7rem;
+                margin-bottom: 20px;
+            }
+            
+            
+            .btn-book {
+                display: inline-block;
+                padding: 10px 20px;
+                background-color: #4ec2a1;
+                color: white;
+                text-decoration: none;
+                border-radius: 5px;
+                transition: background-color 0.3s ease;
+            }
+            
+            .btn-book:hover {
+                background-color: #ff9500;
+            }
+            
+            /* CSS cho phần about-us */
+            .about-us {
+                padding-top: 170px;
+                background-color: #f4f4f4;
+            }
+            
+            .about-us h2 {
+                font-size: 2em;
+                text-align: center;
+                margin-bottom: 30px;
+            }
+            
+            .about-us p {
+                font-size: 1.1em;
+                line-height: 1.6;
+                margin-bottom: 20px;
+            }
+            .text {
+                width: 80%;
+                margin: 0 auto;
+            }
+            
+            .gth{
+                height: 250px; 
+            }            
+        </style>
+</head>
+<body class="body" style="margin:0%">
+    <header class="index">
+        <a href="#" style="padding-left:15px;"><img height="80" width="80" src="{{ url_for('static', filename='img/img/img1.jpg') }}"></a>
+        <nav>
+            <ul>
+                <li><a href="#">TRANG CHỦ</a></li>
+                <li><a href="#gioithieu">GIỚI THIỆU</a></li>
+                <li><a href="#phongkhachsan">PHÒNG KHÁCH SẠN</a></li>
+                <li><a href="#dichvu">DỊCH VỤ</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="intro">
+        <div class="slider">
+            <div class="list">
+                <div class="items"><img src="{{ url_for('static', filename='img/img2.jpg') }}"></div>
+                <div class="items"><img src="{{ url_for('static', filename='img/img3.jpg') }}"></div>
+                <div class="items"><img src="{{ url_for('static', filename='img/img4.jpg') }}"></div>
+                <div class="items"><img src="{{ url_for('static', filename='img/img5.jpg') }}"></div>
+                <div class="items"><img src="{{ url_for('static', filename='img/img6.jpg') }}"></div>
+            </div>
+            <div class="buttons">
+                <button id="prev"><</button>
+                <button id="next">></button>
+            </div>
+            <ul class="dots">
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+    
+    <div id="gioithieu" class="gth">
+        <section class="banner">
+            <div class="text-banner">
+                <h1><strong>Nơi mang đến cho bạn sự nghỉ ngơi thoải mái và tiện nghi</strong></h1>
+                <a href="#phongkhachsan" class="btn-book">Đặt phòng ngay</a>
+            </div>
+        </section>
+        
+        <section class="about-us">
+            <div class="text">
+                <p>Khách sạn Ánh Sao là khách sạn 5 sao tọa lạc tại vị trí đắc địa, gần trung tâm thành phố và các điểm tham quan nổi tiếng. Khách sạn được thiết kế hiện đại, sang trọng với đầy đủ tiện nghi, mang đến cho du khách trải nghiệm nghỉ dưỡng tuyệt vời.</p>
+                <p>Với đội ngũ nhân viên chuyên nghiệp, nhiệt tình, chu đáo, chúng tôi luôn mong muốn mang đến cho quý khách sự hài lòng nhất!</p>
+            </div>
+        </section>
+    </div>
+
+    
+    <div class="lct">
+        <div class="title"><strong>CÁC ĐỊA ĐIỂM</strong></div>
+        <div class="locations" >
+            <div class="roww">
+                <div class="location">
+                    <img src="{{ url_for('static', filename='img/DL.jpg') }}">
+                    <div class="overlay">Đà Lạt</div>
+                </div>
+                <div class="location">
+                    <img src="{{ url_for('static', filename='img/HN.jpg') }}">
+                    <div class="overlay">Hà Nội</div>
+                </div>
+                <div class="location">
+                    <img src="{{ url_for('static', filename='img/Tp.jpg') }}">
+                    <div class="overlay">TPHCM</div>
+                </div>
+            </div>
+            <div class="roww">
+                <div class="location">
+                    <img src="{{ url_for('static', filename='img/DN.jpg') }}">
+                    <div class="overlay">Đà Nẵng</div>
+                </div>
+                <div class="location">
+                    <img src="{{ url_for('static', filename='img/PT.jpg') }}">
+                    <div class="overlay">Phan Thiết</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="phongkhachsan" class="gt">
+        <section class="nice-place">
+            <div class="container">
+            <div class="title"><strong>KHÁCH SẠN LÝ TƯỞNG</strong></div>
+                <div class="nice-place-content roww">
+                    <div class="nice-place-item">
+                        <div class="nice-place-img">
+                            <img src="{{ url_for('static', filename='img/room1.jpg') }}">
+                    </div>
+                    <div class="nice-place-text">
+                        <h2>Phòng kiểu 1</h2>
+                        <p>Hiện đại, sang trọng: Phòng khách hiện đại, sang trọng với gam màu trung tính và nội thất tinh tế.</p>
+                        <button>Đặt phòng</button>
+                    </div>
+                </div>
+                <div class="nice-place-item">
+                        <div class="nice-place-img">
+                            <img src="{{ url_for('static', filename='img/room3.jpg') }}">
+                        </div>
+                    <div class="nice-place-text">
+                        <h2>Phòng kiểu 2</h2>
+                        <p>Sang trọng, đẳng cấp: Căn phòng sang trọng, đẳng cấp với nội thất cao cấp và thiết kế tinh xảo.</p>
+                        <button>Đặt phòng</button>
+                    </div>
+                </div> 
+                <div class="nice-place-item">
+                        <div class="nice-place-img">
+                            <img src="{{ url_for('static', filename='img/room5.jpg') }}">
+                        </div>
+                    <div class="nice-place-text">
+                        <h2>Phòng kiểu 3</h2>
+                        <p>Phong cách + điểm nhấn: Phòng khách hiện đại, sang trọng với sofa êm ái và tầm nhìn thành phố</p>
+                        <button>Đặt phòng</button>
+                    </div>
+                </div>    
+            </div>
+        </div>
+        </section>
+    </div>
+    <div id="dichvu" class="dv">
+        <section class="nice-place">
+                <div class="dvu">
+                    <div class="title"><strong>DỊCH VỤ</strong></div>
+                    <div class="nice-place-content roww">
+                        <div class="nice-place-item">
+                            <div class="nice-place-img">
+                                <img src="{{ url_for('static', filename='img/TIPOS_SPA_VIAJA_BONITO_4.jpg') }}">
+                                </div>
+                                <div class="nice-place-text">
+                                    <h3 style="color:white">Spa thư giãn</h3>
+                                    <p>Tận hưởng dịch vụ spa thư giãn với đội ngũ nhân viên chuyên nghiệp, giúp bạn giải tỏa căng thẳng và mệt mỏi.</p>
+                                </div>
+                        </div>
+                        <div class="nice-place-item">
+                            <div class="nice-place-img">
+                                <img src=" {{ url_for('static', filename='img/tieu-chuan-khach-san-5-sao-c.jpg') }}">
+                                </div>
+                                <div class="nice-place-text">
+                                    <h3 style="color:white">Bể bơi</h3>
+                                    <p>Bể bơi rộng rãi, thoáng mát, thích hợp cho cả gia đình vui chơi và giải trí.</p>
+                            </div>
+                        </div>
+                        <div class="nice-place-item">
+                            <div class="nice-place-img">
+                                <img src="{{ url_for('static', filename='img/nha-hang-da-nang-3.jpg') }}">
+                            </div>
+                                <div class="nice-place-text">
+                                    <h3 style="color:white">Nhà hàng</h3>
+                                    <p>Thưởng thức các món ăn ngon, đa dạng từ các nền ẩm thực khác nhau.</p>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+    </div>
+
+
+    <div class="footer"><p><br><a href="#" style="text-decoration:none;color:white">Ⓗ2024.Khách sạn Ánh Sao</a></p></div>
+
+
+        <button id="chat-widget-button" type="button" class="btn btn-primary rounded-circle position-fixed chat-sign-button" style="bottom: 20px; right: 20px;">
+            <img src="{{ url_for('static', filename='img/chatbot.png') }}" style="width:50px;height:50px;">
+        </button>    
+
+            <!-- chatbot -->
+            <div id="chat-widget" class="card position-fixed shadow d-none" style="bottom:80px;right: 20px;width: 350px;">
+                <div class="card-header bg-primary text-white">
+                    <img src="{{ url_for('static', filename='img/chatbot.png') }}" style="width:35px;height:35px;">
+                    Chatbot
+                    <button id="chat-widget-close-button" type="button" class="btn-close float-end" aria-label="Close"></button>
+                </div>
+
+                <div class="card-body" id="chat-widget-messages">
+                    <!-- chat message will be append here -->
+
+                </div>
+
+                <div class="card-footer">
+                    <input type="text" class="form-control" id="chat-widget-input" placeholder="Type your message...">
+                </div>
+            </div>     
+        <script>
+            $(document).ready(function(){
+                $("#chat-widget-button").on("click",function(){
+                    $("#chat-widget").toggleClass("d-none")
+                });
+
+                $("#chat-widget-close-button").on("click",function(){
+                    $("#chat-widget").addClass("d-none")
+                });
+
+                // handle user input in the chatbot
+                $("#chat-widget-input").keypress(function(event){
+                    if(event.which === 13){
+                        let userMessage = $("#chat-widget-input").val();
+                        $("#chat-widget-input").val("")
+
+                        // Append user message to the chatbox
+                        $("#chat-widget-messages").append('<div class="user">' + userMessage + '</div><br>');
+
+
+                        // send user message to the sever and get bot's response
+                        $.ajax({
+                            type: "POST",
+                            url: "/webhook",
+                            contentType: "application/json",
+                            data: JSON.stringify({message: userMessage}),
+                            success: function(data){
+                                let botResponse = data.response;
+
+                                //Append bot's response to the chatbox
+                                $("#chat-widget-messages").append('<div><img src="{{ url_for('static', filename='img/chatbot.png') }}" style="width:30px;height:30px;"> &#160;' + botResponse + '</div><br>');
+                            },
+
+                            error: function(){
+                                //Handle error if need
+                            }
+                        });
+                    }
+                });
+            });  
+            
+            let slider = document.querySelector('.slider .list');
+            let items = document.querySelectorAll('.slider .list .items');
+            let dots = document.querySelectorAll('.slider .dots li');
+            let prev = document.getElementById('prev');
+            let next = document.getElementById('next');
+
+            let active = 0;
+            let lengthItems = items.length - 1;
+
+            next.onclick = function () {
+            if (active < lengthItems) {
+                active = active + 1;
+            } else {
+                active = 0;
+            }
+            reloadSlider();
+            };
+
+            prev.onclick = function () {
+            if (active > 0) {
+                active = active - 1;
+            } else {
+                active = lengthItems;
+            }
+            reloadSlider();
+            };
+
+            let refreshSlider;
+
+            function startSlider() {
+            refreshSlider = setInterval(() => {
+                next.click();
+            }, 3000);
+            }
+            startSlider();
+            function reloadSlider() {
+            slider.style.left = -items[active].offsetLeft + 'px';
+            let lastActiveDot = document.querySelector('.slider .dots li.active');
+            lastActiveDot.classList.remove('active');
+            dots[active].classList.add('active');
+            clearInterval(refreshSlider);
+            startSlider();
+            }
+            dots.forEach((li, key) => {
+                li.addEventListener('click', function () {
+                active = key;
+                reloadSlider();
+                });
+            });
+        </script> 
+</body>
+
+</html>

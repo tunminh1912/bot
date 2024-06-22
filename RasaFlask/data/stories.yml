@@ -1,0 +1,116 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- story: Bai
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: noi quy
+  steps:
+  - intent: noi_quy
+  - action: utter_noi_quy
+
+- story: tu van
+  steps:
+  - intent: tu_van
+  - action: utter_tu_van
+
+- story: vi tri
+  steps:
+  - intent: vi_tri
+  - action: utter_vi_tri
+
+- story: tien ich
+  steps:
+  - intent: tien_ich
+  - action: utter_tien_ich
+
+- story: gia phong
+  steps:
+  - intent: gia_phong
+  - action: utter_gia_phong
+
+- story: chinh sach huy
+  steps:
+  - intent: cs_huy
+  - action: utter_cs_huy
+
+- story: dich vu
+  steps:
+  - intent: dich_vu
+  - action: utter_dich_vu
+
+- story: tp_hn
+  steps:
+  - intent: tp_hn
+  - action: utter_tp_hn
+
+- story: tp_dn
+  steps:
+  - intent: tp_dn
+  - action: utter_tp_dn
+
+- story: tp_dl
+  steps:
+  - intent: tp_dl
+  - action: utter_tp_dl
+
+- story: tp_pt
+  steps:
+  - intent: tp_pt
+  - action: utter_tp_pt
+
+- story: tp_hcm
+  steps: 
+  - intent: tp_hcm
+  - action: utter_tp_hcm
+
+- story: danh_gia
+  steps:
+  - intent: danh_gia
+  - action: utter_danh_gia
+
+- story: dat_phong
+  steps:
+  - intent: dat_phong
+  - action: utter_dat_phong
+  - intent: provide
+    entities:
+      - name: "Nguyễn Văn A"
+      - phone_number: "0123456789"
+      - chi_nhanh: "CN1"
+      - loai_phong: "vip"
+      - so_luong: "Một"
+      - thoi_gian: "30-6-2024"
+  - action: action_save_details
+  - action: utter_hoi_them
+
+
+- story: thay_doi
+  steps:
+  - intent: thay_doi
+  - action: utter_thay_doi
+  - intent: provide_thay_doi
+    entities:
+      - name: "Nguyễn Văn A"
+      - phone_number: "0123456789"
+  - action: action_save_details_thay_doi
+  - action: utter_hoi_them
+
+- story: huy_phong
+  steps:
+  - intent: huy_phong
+  - action: utter_thay_doi
+  - intent: provide_huy_phong
+    entities:
+      - name: "Nguyễn Văn A"
+      - phone_number: "0123456789"
+  - action: action_save_details_huy_phong
+  - action: utter_hoi_them

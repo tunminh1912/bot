@@ -1,0 +1,44 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-chinhanh",
+      "2": "I-chinhanh",
+      "3": "L-chinhanh",
+      "4": "U-chinhanh",
+      "5": "B-loai_phong",
+      "6": "I-loai_phong",
+      "7": "L-loai_phong",
+      "8": "U-loai_phong",
+      "9": "B-name",
+      "10": "I-name",
+      "11": "L-name",
+      "12": "U-name",
+      "13": "B-sdt",
+      "14": "I-sdt",
+      "15": "L-sdt",
+      "16": "U-sdt",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-chinhanh": 1,
+      "I-chinhanh": 2,
+      "L-chinhanh": 3,
+      "U-chinhanh": 4,
+      "B-loai_phong": 5,
+      "I-loai_phong": 6,
+      "L-loai_phong": 7,
+      "U-loai_phong": 8,
+      "B-name": 9,
+      "I-name": 10,
+      "L-name": 11,
+      "U-name": 12,
+      "B-sdt": 13,
+      "I-sdt": 14,
+      "L-sdt": 15,
+      "U-sdt": 16,
+      "O": 0
+    },
+    "num_tags": 17
+  }
+]
